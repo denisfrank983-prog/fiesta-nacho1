@@ -1,0 +1,62 @@
+body {
+  margin:0; padding:0;
+  background: linear-gradient(135deg, #fff7e6, #ffe3b3);
+  font-family: "Poppins", sans-serif;
+  text-align:center;
+}
+
+.hero {
+  padding:60px 20px;
+}
+
+h1 {
+  font-size:2.8rem;
+  color:#8d5a13;
+  margin:0;
+}
+
+#countdown {
+  font-size:1.8rem;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.card {
+  max-width:500px;
+  background:white;
+  margin:20px auto;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+input, textarea, select {
+  width:100%;
+  margin:10px 0;
+  padding:12px;
+  border:1px solid #cacaca;
+  border-radius:8px;
+  font-size:1rem;
+}
+
+button {
+  width:100%;
+  padding:12px;
+  background:#8d5a13;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-size:1.2rem;
+  cursor:pointer;
+  font-weight:bold;
+}
+button:hover {
+  background:#70440c;
+}
+
+#resultado {
+  margin-top:10px;
+  color:green;
+  font-weight:bold;
+  font-size:1.1rem;
+}

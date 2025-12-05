@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cumpleaños 🎉</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hero">
+  <h1>¡Estás invitado! 🎉</h1>
+  <p>domingo 7 de diciembre</p>
+  <div id="countdown"></div>
+</div>
+
+<div class="card">
+  <h2>Confirma tu asistencia</h2>
+
+  <form name="asistencia" method="POST" data-netlify="true" id="form">
+    <input type="hidden" name="form-name" value="asistencia">
+
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="number" name="personas" placeholder="Número de personas" required>
+    <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
+
+    <select name="asistencia" required>
+      <option value="Sí">Sí asistiré 🎉</option>
+      <option value="No">No asistiré 😢</option>
+    </select>
+
+    <button type="submit">Confirmar asistencia</button>
+  </form>
+
+  <div id="resultado"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
