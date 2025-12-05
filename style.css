@@ -1,62 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
-  margin:0; padding:0;
-  background: linear-gradient(135deg, #fff7e6, #ffe3b3);
-  font-family: "Poppins", sans-serif;
-  text-align:center;
+  background: #fff7de;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Hero */
 .hero {
-  padding:60px 20px;
+  width: 100%;
+  height: 55vh;
+  background: url('https://images.unsplash.com/photo-1519861531473-9200262188de?w=1600&q=80') center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+  position:relative;
 }
 
-h1 {
-  font-size:2.8rem;
-  color:#8d5a13;
-  margin:0;
+.overlay {
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero h1 {
+  z-index:1;
+  color: #fff;
+  font-size:2.3rem;
+  margin-bottom:10px;
+  text-shadow: 1px 1px 4px #000;
+}
+
+.date {
+  color:#fff;
+  font-size:1.2rem;
+  z-index:1;
 }
 
 #countdown {
-  font-size:1.8rem;
-  margin-top:10px;
-  font-weight:bold;
+  display:flex;
+  gap:15px;
+  margin-top:15px;
+  z-index:1;
+  color:#fff;
+  font-size:1rem;
 }
 
+#countdown span {
+  font-size:1.4rem;
+  font-weight:700;
+}
+
+/* Card */
 .card {
-  max-width:500px;
-  background:white;
-  margin:20px auto;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  background:#fff;
+  width:90%;
+  max-width:400px;
+  padding:20px;
+  margin-top:-40px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.card h2 {
+  margin-bottom:15px;
 }
 
 input, textarea, select {
   width:100%;
-  margin:10px 0;
-  padding:12px;
-  border:1px solid #cacaca;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ddd;
   border-radius:8px;
   font-size:1rem;
 }
 
-button {
-  width:100%;
-  padding:12px;
-  background:#8d5a13;
-  color:white;
-  border:none;
-  border-radius:8px;
-  font-size:1.2rem;
-  cursor:pointer;
-  font-weight:bold;
-}
-button:hover {
-  background:#70440c;
+textarea {
+  resize:none;
+  height:90px;
 }
 
-#resultado {
+button {
+  width:100%;
+  background:#ff914d;
+  color:#fff;
+  padding:12px;
+  font-size:1rem;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+button:hover {
+  background:#ff6f0f;
+}
+
+.info {
+  font-size:.9rem;
+  color:#666;
   margin-top:10px;
-  color:green;
-  font-weight:bold;
-  font-size:1.1rem;
+}
+
+@media (min-width:800px){
+  .hero h1{
+    font-size:3rem;
+  }
+  #countdown span{
+    font-size:1.8rem;
+  }
 }

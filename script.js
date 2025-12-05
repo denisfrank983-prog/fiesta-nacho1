@@ -1,28 +1,25 @@
-// FECHA DEL EVENTO
-const eventDate = new Date("2025-12-07T15:00:00");
+// Fecha del cumpleaños
+const fechaEvento = new Date("December 7, 2025 15:00:00").getTime();
 
-function updateCountdown() {
-  const now = new Date();
-  const diff = eventDate - now;
+const diasSpan = document.getElementById("dias");
+const horasSpan = document.getElementById("horas");
+const minutosSpan = document.getElementById("minutos");
+const segundosSpan = document.getElementById("segundos");
 
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor(diff / (1000*60*60) % 24);
-  const m = Math.floor(diff / (1000*60) % 60);
-  const s = Math.floor(diff / 1000 % 60);
+function actualizarCountdown() {
+  const ahora = new Date().getTime();
+  const distancia = fechaEvento - ahora;
 
-  document.getElementById("countdown").innerText =
-    `${d} días ${h}h ${m}m ${s}s`;
+  const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+  const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+  diasSpan.textContent = dias;
+  horasSpan.textContent = horas;
+  minutosSpan.textContent = minutos;
+  segundosSpan.textContent = segundos;
 }
-setInterval(updateCountdown, 1000);
 
-// FORM
-const form = document.getElementById("form");
-const resBox = document.getElementById("resultado");
-
-form.addEventListener("submit", function(e) {
-  resBox.innerText = "Enviando...";
-  setTimeout(() => {
-    resBox.innerText = "¡Gracias por confirmar! 🎉";
-    form.reset();
-  }, 1200);
-});
+setInterval(actualizarCountdown, 1000);
+actualizarCountdown();

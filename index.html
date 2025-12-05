@@ -9,31 +9,58 @@
 <body>
 
 <div class="hero">
+  <div class="overlay"></div>
+
   <h1>¡Estás invitado! 🎉</h1>
-  <p>domingo 7 de diciembre</p>
-  <div id="countdown"></div>
+  <p class="date">Domingo 7 de diciembre</p>
+
+  <div id="countdown">
+    <div><span id="dias">00</span>Días</div>
+    <div><span id="horas">00</span>Hrs</div>
+    <div><span id="minutos">00</span>Min</div>
+    <div><span id="segundos">00</span>Seg</div>
+  </div>
 </div>
 
 <div class="card">
   <h2>Confirma tu asistencia</h2>
 
-  <form name="asistencia" method="POST" data-netlify="true" id="form">
+  <form 
+      name="asistencia" 
+      method="POST" 
+      data-netlify="true" 
+      netlify-honeypot="bot-field">
+
+    <!-- obligatorio para Netlify -->
     <input type="hidden" name="form-name" value="asistencia">
+    <input type="hidden" name="bot-field">
 
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="number" name="personas" placeholder="Número de personas" required>
-    <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
-
-    <select name="asistencia" required>
+    
+    <select name="asistira" required>
       <option value="Sí">Sí asistiré 🎉</option>
       <option value="No">No asistiré 😢</option>
     </select>
 
+    <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
+
     <button type="submit">Confirmar asistencia</button>
   </form>
 
-  <div id="resultado"></div>
+  <p class="info">¡Gracias por responder! 💛</p>
 </div>
+
+<!-- Dummy Form - Detecta Netlify -->
+<form name="asistencia" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nombre">
+  <input type="number" name="personas">
+  <select name="asistira">
+    <option value="Sí"></option>
+    <option value="No"></option>
+  </select>
+  <textarea name="mensaje"></textarea>
+</form>
 
 <script src="script.js"></script>
 </body>
