@@ -2,63 +2,58 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: url('https://wallpapers.com/images/hd/best-rocket-league-background-3840-x-2160-ql0e8h1vrf6bm3ne.jpg') no-repeat center center/cover;
-  height: 100vh;
-  overflow-x: hidden;
+  background: url('https://wallpapers.com/images/hd/best-rocket-league-background-3840-x-2160-ql0e8h1vrf6bm3ne.jpg') 
+              no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
 }
 
 .overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(5px);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+  backdrop-filter: blur(2px);
+  z-index: -1;
 }
 
 .hero {
-  margin-top: 8vh;
   text-align: center;
-  z-index: 2;
+  margin-top: 40px;
+  user-select: none;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.3rem;
+  font-size: 2.6rem;
 }
 
 #countdown {
   margin-top: 10px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .card {
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 12px;
-  padding: 25px;
-  max-width: 350px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 25px;
   width: 90%;
-  margin-top: 35px;
-  z-index: 2;
-  backdrop-filter: blur(6px);
+  max-width: 400px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
 }
 
 .card h2 {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 form {
@@ -67,25 +62,41 @@ form {
   gap: 12px;
 }
 
-input, select, textarea {
-  padding: 12px;
+input, select {
+  padding: 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 10px;
   outline: none;
+  font-size: 1rem;
 }
 
 button {
-  padding: 13px;
+  padding: 12px;
+  background: #ff8800;
   border: none;
-  border-radius: 8px;
-  background: linear-gradient(45deg, #00e5ff, #0078ff);
+  border-radius: 10px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: 0.25s;
+  transition: 0.2s;
+  font-weight: bold;
 }
 
 button:hover {
-  transform: scale(1.05);
+  background: #ff5500;
+}
+
+.mapa {
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  #countdown {
+    font-size: 1.2rem;
+  }
 }
