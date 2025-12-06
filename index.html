@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cumpleaños 🎉</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,48 +13,36 @@
 <div class="hero">
   <h1>¡Estás invitado! 🎉</h1>
   <p>Domingo 7 de diciembre</p>
-  <div id="countdown"></div>
+  <div id="countdown">Cargando…</div>
 </div>
 
 <div class="card">
   <h2>Confirma tu asistencia</h2>
 
-  <!-- Formulario visible -->
-  <form name="asistencia" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="asistencia">
+  <form id="form">
+    <input id="nombre" type="text" placeholder="Tu nombre" required>
+    <input id="personas" type="number" placeholder="Número de personas" required>
 
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="number" name="personas" placeholder="Número de personas" required>
-
-    <select name="confirmacion" required>
-      <option value="Sí">Sí asistiré 🎉</option>
-      <option value="No">No asistiré 😢</option>
+    <select id="asistencia">
+      <option value="Si asistiré 🎉">Sí asistiré 🎉</option>
+      <option value="No podré asistir 😞">No podré asistir 😞</option>
     </select>
 
     <button type="submit">Confirmar asistencia</button>
   </form>
 
-  <h3 style="text-align:center;margin-top:15px;">Ubicación 📍</h3>
+  <div id="mensaje" class="mensaje"></div>
+
+  <h2 class="loc-title">Ubicación 📍</h2>
 
   <div class="mapa">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.135820143025!2d-103.3891674!3d20.678550499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428aedbc0f9a7e5%3A0xeaae2fd7a6be9c43!2sGuadalajara%2C%20Jal.!5e0!3m2!1ses!2smx!4v1701590400000"
-      width="100%" height="250" style="border:0;border-radius:10px;"
-      allowfullscreen="" loading="lazy">
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.098956226291!2d-101.270642!3d21.020722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf776cd6c7e9%3A0xaba7f17cebbd2583!2sLomas%20de%20La%20Trinidad%2028%2C%20Villaseca%2C%2036251%20Marfil%2C%20Gto.!5e0!3m2!1ses!2smx!4v1700000000000"
+      width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
     </iframe>
   </div>
 
 </div>
-
-<!-- Form oculto para detección Netlify -->
-<form name="asistencia" method="POST" data-netlify="true" hidden>
-  <input type="text" name="nombre">
-  <input type="number" name="personas">
-  <select name="confirmacion">
-    <option value="Sí">Sí asistiré</option>
-    <option value="No">No asistiré</option>
-  </select>
-</form>
 
 <script src="script.js"></script>
 </body>

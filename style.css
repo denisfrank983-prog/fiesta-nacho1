@@ -2,60 +2,80 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Fondo Rocket League */
 body {
-  background: url('https://wallpapers.com/images/hd/best-rocket-league-background-3840-x-2160-ql0e8h1vrf6bm3ne.jpg') 
-              no-repeat center center fixed;
+  background: url("https://wallpapers.com/images/hd/best-rocket-league-background-3840-x-2160-ql0e8h1vrf6bm3ne.jpg") no-repeat center center fixed;
   background-size: cover;
-  min-height: 100vh;
+  overflow-x: hidden;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
+/* Capa oscura */
 .overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.50);
-  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(3px);
   z-index: -1;
 }
 
+/* Hero */
 .hero {
   text-align: center;
-  margin-top: 40px;
-  user-select: none;
+  padding-top: 40px;
+  padding-bottom: 15px;
 }
 
 .hero h1 {
-  font-size: 2.6rem;
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
 }
 
 #countdown {
+  font-size: 22px;
   margin-top: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
+  color: #ff9900;
+  text-shadow: 0 0 10px #ff9900;
 }
 
+/* Tarjeta */
 .card {
-  background: rgba(255, 255, 255, 0.15);
+  max-width: 420px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 25px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .card h2 {
   text-align: center;
+  font-size: 22px;
   margin-bottom: 15px;
 }
 
+/* Formulario */
 form {
   display: flex;
   flex-direction: column;
@@ -63,40 +83,70 @@ form {
 }
 
 input, select {
-  padding: 10px;
-  border: none;
+  padding: 12px;
   border-radius: 10px;
+  border: none;
   outline: none;
-  font-size: 1rem;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
 }
 
+input::placeholder {
+  color: #555;
+}
+
+/* Botón */
 button {
-  padding: 12px;
-  background: #ff8800;
+  padding: 14px;
+  font-size: 17px;
   border: none;
   border-radius: 10px;
-  color: white;
-  font-size: 1rem;
   cursor: pointer;
-  transition: 0.2s;
-  font-weight: bold;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff9600, #ff2e00);
+  color: white;
+  transition: .3s;
 }
 
 button:hover {
-  background: #ff5500;
+  opacity: .85;
+  transform: scale(1.02);
 }
 
-.mapa {
-  margin-top: 10px;
-  overflow: hidden;
-  border-radius: 10px;
+/* Mensaje */
+.mensaje {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
 }
 
-@media (max-width: 500px) {
+/* Mapa */
+.loc-title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.mapa iframe {
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 460px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 32px;
   }
+
   #countdown {
-    font-size: 1.2rem;
+    font-size: 19px;
+  }
+
+  .card {
+    margin: 20px;
+    padding: 20px;
   }
 }
