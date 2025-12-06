@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocket Party</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="overlay"></div>
+<div id="particles-js"></div>
+<audio id="rocket-sound" src="rocket_goal.wav" preload="auto"></audio>
 
-<div class="hero">
-  <h1>¡Estás invitado! 🎉</h1>
-  <p>Domingo 7 de diciembre</p>
-  <div id="countdown">Cargando…</div>
-</div>
+<div class="container neon">
+  <h1 class="title">⚡ Rocket Party ⚡</h1>
+  <p>Evento explosivo estilo Rocket League</p>
 
-<div class="card">
-  <h2>Confirma tu asistencia</h2>
-
-  <form id="form">
-    <input id="nombre" type="text" placeholder="Tu nombre" required>
-    <input id="personas" type="number" placeholder="Número de personas" required>
-
-    <select id="asistencia">
-      <option value="Si asistiré 🎉">Sí asistiré 🎉</option>
-      <option value="No podré asistir 😞">No podré asistir 😞</option>
-    </select>
-
-    <button type="submit">Confirmar asistencia</button>
-  </form>
-
-  <div id="mensaje" class="mensaje"></div>
-
-  <h2 class="loc-title">Ubicación 📍</h2>
-
-  <div class="mapa">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.098956226291!2d-101.270642!3d21.020722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf776cd6c7e9%3A0xaba7f17cebbd2583!2sLomas%20de%20La%20Trinidad%2028%2C%20Villaseca%2C%2036251%20Marfil%2C%20Gto.!5e0!3m2!1ses!2smx!4v1700000000000"
-      width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
+  <!-- Countdown -->
+  <div class="countdown-box">
+    <h3>Cuenta regresiva</h3>
+    <div id="countdown"></div>
   </div>
 
+  <!-- Netlify Form -->
+  <form name="confirmacion" method="POST" data-netlify="true" onsubmit="return handleSubmit(event)">
+    <input type="hidden" name="Formulario" value="Asistencia" />
+
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required />
+
+    <label>¿Cuántas personas van contigo?</label>
+    <input type="number" name="personas" min="1" required />
+
+    <button type="submit" class="btn">Confirmar asistencia</button>
+  </form>
+
+  <h2>📍 Ubicación</h2>
+  <iframe class="map"
+    src="https://www.google.com/maps?q=Lomas%20de%20La%20Trinidad%2028,%20Villaseca,%2036251%20Marfil,%20Gto&output=embed"
+    allowfullscreen></iframe>
+
 </div>
 
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content neon">
+    <h2 class="explode">🔥 ¡Asistencia confirmada! 🔥</h2>
+    <p>El evento inicia a las <strong>3:00 PM</strong></p>
+
+    <a target="_blank"
+      href="https://maps.app.goo.gl/VH71NaHd2JSh2FbLA?g_st=aw"
+      class="btn">Abrir en Google Maps</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

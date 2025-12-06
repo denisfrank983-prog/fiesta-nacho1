@@ -1,152 +1,123 @@
-* {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Fondo Rocket League */
-body {
-  background: url("https://wallpapers.com/images/hd/best-rocket-league-background-3840-x-2160-ql0e8h1vrf6bm3ne.jpg") no-repeat center center fixed;
-  background-size: cover;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
   overflow-x: hidden;
-  color: white;
+  background: url('https://wallpapers.com/images/hd/best-rocket-league-background-3840-x-2160-ql0e8h1vrf6bm3ne.jpg') center / cover fixed;
 }
 
-/* Capa oscura */
-.overlay {
+#particles-js {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.55);
-  backdrop-filter: blur(3px);
-  z-index: -1;
+  z-index: 0;
 }
 
-/* Hero */
-.hero {
+.container {
+  z-index: 2;
+  position: relative;
+  width: 90%;
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 25px;
+  background: rgba(0,0,0,0.55);
+  border-radius: 12px;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 15px;
 }
 
-.hero h1 {
-  font-size: 42px;
+.title {
+  font-size: 2.1em;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px #0ff;
+}
+
+.neon {
+  border: 2px solid #0ff;
+  box-shadow: 0 0 8px #0ff, 0 0 18px #0ff inset;
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from { box-shadow: 0 0 6px #0ff; }
+  to { box-shadow: 0 0 18px #0ff; }
+}
+
+label {
+  text-align: left;
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #0ff;
+  color: #000;
   font-weight: bold;
-  margin-bottom: 10px;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
-.hero p {
-  font-size: 18px;
-  opacity: 0.9;
+.btn:hover {
+  box-shadow: 0 0 18px #0ff;
+}
+
+.map {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 15px;
+  border: none;
+}
+
+.countdown-box {
+  margin-bottom: 20px;
 }
 
 #countdown {
-  font-size: 22px;
-  margin-top: 10px;
-  font-weight: 600;
-  color: #ff9900;
-  text-shadow: 0 0 10px #ff9900;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-shadow: 0 0 8px #0ff;
 }
 
-/* Tarjeta */
-.card {
-  max-width: 420px;
-  margin: 0 auto;
-  margin-top: 10px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  padding: 25px;
-  border-radius: 18px;
-  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
-  animation: fadeIn 1s ease-in-out;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.card h2 {
-  text-align: center;
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-/* Formulario */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-input, select {
-  padding: 12px;
+.modal-content {
+  padding: 20px;
   border-radius: 10px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.85);
-  color: #222;
-}
-
-input::placeholder {
-  color: #555;
-}
-
-/* Botón */
-button {
-  padding: 14px;
-  font-size: 17px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  background: linear-gradient(90deg, #ff9600, #ff2e00);
-  color: white;
-  transition: .3s;
-}
-
-button:hover {
-  opacity: .85;
-  transform: scale(1.02);
-}
-
-/* Mensaje */
-.mensaje {
-  margin-top: 15px;
   text-align: center;
-  font-size: 17px;
-  font-weight: 500;
-  color: #fff;
+  animation: pop 0.8s ease;
 }
 
-/* Mapa */
-.loc-title {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 8px;
-  font-size: 20px;
+@keyframes pop {
+  from { transform: scale(0.3); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
-.mapa iframe {
-  border-radius: 12px;
+.explode {
+  animation: explodeGlow 1.2s ease infinite alternate;
 }
 
-/* Responsive */
-@media (max-width: 460px) {
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  #countdown {
-    font-size: 19px;
-  }
-
-  .card {
-    margin: 20px;
-    padding: 20px;
-  }
+@keyframes explodeGlow {
+  0% { text-shadow: 0 0 6px #ff4500; }
+  100% { text-shadow: 0 0 22px #ffa500; }
 }
