@@ -1,26 +1,41 @@
-// Sound
+// Sound on page load (mute autoplay protection friendly)
 window.addEventListener("load", () => {
   const audio = document.getElementById("rocket-sound");
   audio.volume = 0.6;
-  audio.play().catch(()=>{});
+  audio.play().catch(() => {});
 });
 
-// Netlify submit + Modal
+// Netlify submit + Modal + Sound
 function handleSubmit(e) {
   e.preventDefault();
 
-  // Send to Netlify
+  const form = e.target;
+  const formData = new FormData(form);
+
+  // 🎵 Play Rocket sound on confirm
+  const audio = document.getElementById("rocket-sound");
+  audio.currentTime = 0;
+  audio.play().catch(()=>{});
+
+  // 📩 Send to Netlify properly
   fetch("/", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(new FormData(e.target)).toString()
-  });
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams(formData).toString()
+  })
+    .then(() => {
+      // 🎉 Show modal now that Netlify stored the data
+      document.getElementById("modal").style.display = "flex";
 
-  // Show modal
-  document.getElementById("modal").style.display = "flex";
+      // 🧼 Reset form
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Error al enviar: " + error);
+    });
 
-  // Reset form
-  e.target.reset();
   return false;
 }
 
@@ -45,4 +60,4 @@ setInterval(countdown, 1000);
 countdown();
 
 // particles.js
-particlesJS.load('particles-js', 'particles.json');
+particlesJS.load("particles-js", "particles.json");

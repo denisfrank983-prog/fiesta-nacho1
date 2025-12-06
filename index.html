@@ -23,7 +23,8 @@
 
   <!-- Netlify Form -->
   <form name="confirmacion" method="POST" data-netlify="true" onsubmit="return handleSubmit(event)">
-    <input type="hidden" name="Formulario" value="Asistencia" />
+    <!-- FIX: Netlify requiere form-name -->
+    <input type="hidden" name="form-name" value="confirmacion" />
 
     <label>Nombre:</label>
     <input type="text" name="nombre" required />
